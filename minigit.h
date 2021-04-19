@@ -8,6 +8,8 @@
 #include <iostream>
 #include <filesystem>
 
+namespace fs = std::filesystem;
+
 struct singlyNode
 {
     std::string fileName;
@@ -28,10 +30,20 @@ class minigit
 {
 
 public:
-    doublyNode *doubleHead;
+    minigit(); //creates commit0 doublyNode, sets it to doubleHead
+    ~minigit(); //
+
+    bool gitInit();
+    bool gitAdd(std::string filename, bool debug = 0);
+
+
+
+
 
 private:
-
+    doublyNode *doubleHead{};
+    doublyNode *currVersion;
+    doublyNode *lateVersion;
 
 };
 
